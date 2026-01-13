@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-notification-table
+      author: Ali Gasimzade
+      changes:
+        - createTable:
+            tableName: notification
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(20)
+              - column:
+                  name: message
+                  type: text
+              - column:
+                  name: is_read
+                  type: boolean
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP

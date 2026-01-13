@@ -1,1 +1,24 @@
-spring.application.name=ms-cms
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5435/cms_db
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    generate-ddl: false
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+logging:
+  level:
+    org.springframework.security: DEBUG
+application:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION}
+  bin:
+    visa: ${VISA_BIN}
+    master: ${MASTER_BIN}
+    mir: ${MIR_BIN}

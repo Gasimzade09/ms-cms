@@ -1,5 +1,5 @@
 package ru.em.cms.model.type;
 
-public enum SupportedCurrency {
+public enum Currency {
     AZN, USD, EUR, RUB
 }

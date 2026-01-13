@@ -1,4 +1,4 @@
-package ru.em.cms.model.dto;
+package ru.em.cms.model.request;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

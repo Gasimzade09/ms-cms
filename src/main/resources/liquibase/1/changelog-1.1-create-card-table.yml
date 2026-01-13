@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-card-table
+      author: Ali Gasimzade
+      changes:
+        - createTable:
+            tableName: card
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: card_number
+                  type: varchar(16)
+              - column:
+                  name: card_holder
+                  type: varchar(300)
+              - column:
+                  name: currency
+                  type: varchar(3)
+              - column:
+                  name: expiry_date
+                  type: date
+              - column:
+                  name: balance
+                  type: numeric
+              - column:
+                  name: status
+                  type: varchar(20)
+              - column:
+                  name: user_id
+                  type: bigint
+              - column:
+                  name: type
+                  type: varchar(25)
+              - column:
+                  name: version
+                  type: bigint
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValue: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValue: now()

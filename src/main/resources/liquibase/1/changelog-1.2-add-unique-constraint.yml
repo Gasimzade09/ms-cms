@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 20260110-2
+      id: add-unique-constraint
       author: ali
       changes:
         - addUniqueConstraint:

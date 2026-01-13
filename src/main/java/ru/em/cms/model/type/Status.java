@@ -1,2 +1,5 @@
-package ru.em.cms.model.type;public class Status {
+package ru.em.cms.model.type;
+
+public enum Status {
+    ACTIVE, BLOCKED, EXPIRED
 }

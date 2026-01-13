@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  effective-mobile:
+    env_file:
+      - .env
+    container_name: ms-cms
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: cms_db
+version: '3.9'
+services:
+  effective-mobile:
+    env_file:
+      - .env
+    container_name: ms-cms
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: cms_db
