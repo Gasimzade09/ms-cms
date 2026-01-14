@@ -10,8 +10,9 @@ import org.mapstruct.Named;
 import ru.em.cms.model.dto.CardDto;
 import ru.em.cms.model.entity.CardEntity;
 import ru.em.cms.model.entity.UserEntity;
+import ru.em.cms.model.request.CreateCardRequest;
 
-@Mapper
+@Mapper(componentModel = "spring", imports = java.time.LocalDate.class)
 public interface CardMapper {
 
     @Mapping(target = "maskedPan", source = "cardNumber", qualifiedByName = "maskPan")
@@ -20,6 +21,13 @@ public interface CardMapper {
     CardDto entityToDto(CardEntity entity);
 
     Set<CardDto> entityListToDtoList(Set<CardEntity> entities);
+
+    @Mapping(target = "balance", constant = "10.0")
+    @Mapping(target = "expiryDate", expression = "java(LocalDate.now().plusYears(3))")
+    @Mapping(target = "status", constant = "ACTIVE")
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "user", source = "user")
+    CardEntity createCard(String cardNumber, String cardHolder, UserEntity user, CreateCardRequest request);
 
     @Named("maskPan")
     default String maskPan(String pan) {

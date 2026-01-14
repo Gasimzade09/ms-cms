@@ -1,6 +1,7 @@
 package ru.em.cms.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -35,8 +36,8 @@ public class CardController {
 
     @GetMapping
     public ResponseEntity<PageableResponse<CardDto>> getCards(
-            GetCardRequest request,
-            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+            @ParameterObject GetCardRequest request,
+            @ParameterObject @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
         return ResponseEntity.ok(service.getCards(request, pageable));
     }
 
