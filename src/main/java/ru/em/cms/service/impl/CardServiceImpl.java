@@ -55,15 +55,7 @@ public class CardServiceImpl implements CardService {
         for (int i = 0; i < 5; i++) {
             try {
                 String number = CardUtil.generateCardNumber(bin);
-                CardEntity card = new CardEntity();
-                card.setCardNumber(number);
-                card.setBalance(BigDecimal.ZERO);
-                card.setUser(user);
-                card.setExpiryDate(LocalDate.now().plusYears(3));
-                card.setStatus(Status.ACTIVE);
-                card.setType(request.getType());
-                card.setCardHolder(cardHolder);
-                card.setCurrency(request.getCurrency());
+                CardEntity card = mapper.createCard(number, cardHolder, user, request);
                 cardRepository.save(card);
                 return mapper.entityToDto(card);
             } catch (DataIntegrityViolationException ignored) {}

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import ru.em.cms.model.type.Role;
 
 @Data
 @NoArgsConstructor
@@ -15,5 +16,5 @@ public class UserRegistrationRequest {
     String lastname;
     String email;
     String password;
-
+    Role role;
 }

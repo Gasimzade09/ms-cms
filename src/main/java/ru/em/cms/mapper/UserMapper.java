@@ -9,7 +9,6 @@ import ru.em.cms.model.entity.UserEntity;
 @Mapper
 public interface UserMapper {
 
-    @Mapping(target = "role", constant = "USER")
     UserEntity dtoToEntity(UserRegistrationRequest request);
 
     UserDto entityToDto(UserEntity entity);

@@ -31,8 +31,8 @@ public class CardSpecification implements Specification<CardEntity> {
         if (!ObjectUtils.isEmpty(filter.getType())) {
             predicates.add(cb.equal(root.get("type"), filter.getType()));
         }
-        if (Optional.ofNullable(filter.getIncludeZeroBalance()).orElse(false)) {
-            predicates.add(cb.greaterThanOrEqualTo(root.get("balance"), BigDecimal.ZERO));
+        if (!Optional.ofNullable(filter.getIncludeZeroBalance()).orElse(true)) {
+            predicates.add(cb.greaterThan(root.get("balance"), BigDecimal.ZERO));
         }
 
 

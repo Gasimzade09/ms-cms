@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: cms_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/cms_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: ${JWT_EXPIRATION}
+      VISA_BIN: ${VISA_BIN}
+      MASTER_BIN: ${MASTER_BIN}
+      MIR_BIN: ${MIR_BIN}
+    depends_on:
+      - db

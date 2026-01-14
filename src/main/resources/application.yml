@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5435/cms_db
+    url: jdbc:postgresql://db:5432/cms_db
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
   jpa:
@@ -22,3 +22,9 @@ application:
     visa: ${VISA_BIN}
     master: ${MASTER_BIN}
     mir: ${MIR_BIN}
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
