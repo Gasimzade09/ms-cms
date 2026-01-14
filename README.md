@@ -166,8 +166,8 @@ Make sure the following tools are installed:
 ## 1️⃣ Clone repository
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/Gasimzade09/ms-cms
+cd ms-cms
 ```
 ## 2️⃣ Environment variables
 
@@ -179,7 +179,6 @@ In the project root directory create a file:
 
 .env
 
-
 Example:
 ```
 DB_URL=jdbc:postgresql://localhost:5432/card_service
@@ -187,6 +186,9 @@ DB_USERNAME=postgres
 DB_PASSWORD=postgres
 JWT_SECRET=SECRETKEYFORTESTTASK
 JWT_EXPIRATION=3600000
+VISA_BIN=411111
+MASTER_BIN=521234
+MIR_BIN=220000
 ```
 
 ## 3️⃣ Database setup
@@ -194,7 +196,7 @@ JWT_EXPIRATION=3600000
 ### Create PostgreSQL database:
 
 ``` sql 
-CREATE DATABASE card_service;
+CREATE DATABASE cms_db;
 ```
 
 ## 4️⃣ Application configuration
